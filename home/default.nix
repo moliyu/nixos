@@ -20,6 +20,7 @@
     feh
     python3
     lazygit
+    microsoft-edge
   ];
 
   home.stateVersion = "24.05";
@@ -62,4 +63,5 @@
   xdg.configFile."alacritty".source = ./alacritty;
   xdg.configFile."pictures".source = ./pictures;
   xdg.configFile."dunst".source = ./dunst;
+  xdg.dataFile."fcitx5/themes".source = ./fcitx-theme;
 }
