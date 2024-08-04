@@ -73,20 +73,20 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = true;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
+  # services.pipewire = {
+  #   enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  #   pulse.enable = true;
+  #   # If you want to use JACK applications, uncomment this
+  #   #jack.enable = true;
+  #
+  #   # use the example session manager (no others are packaged yet so this is enabled by default,
+  #   # no need to redefine it in your config for now)
+  #   #media-session.enable = true;
+  # };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -124,6 +124,7 @@
     package = pkgs.nix-ld-rs;
     libraries = [
       pkgs.fnm
+      pkgs.clash-verge-rev
       # pkgs.libGL, any other libraries your code may need...
       # See nix-alien and nix-autobahn for help finding which 
       # libraries you need to install... not sure the best way
@@ -156,7 +157,14 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
+
+  # services.mihomo = {
+  #   enable = true; 
+  #   tunMode = true;
+  #   configFile = /home/doudou/nixos/config.yaml;
+  # };
+  services.v2raya.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

@@ -10,7 +10,7 @@
     neofetch
     vscode
     fnm
-    clash-verge-rev
+    # clash-verge-rev
     gcc
     rofi
     alacritty
@@ -53,6 +53,8 @@
       ];
     };
   };
+
+  
 
   xdg.configFile."rofi".source = ./rofi;
   xdg.configFile."i3".source = ./i3;
