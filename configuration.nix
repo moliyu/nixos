@@ -57,8 +57,17 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    theme = "catppuccin-mocha";
+    package = pkgs.kdePackages.sddm;
+    settings= {
+      General = {
+        InputMethod = "";
+      };
+    };
+  };
+  # services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -71,8 +80,14 @@
       extraPackages = with pkgs; [
         dmenu #application launcher most people use
         i3status # gives you the default i3 status bar
-        i3lock #default i3 screen locker
+        i3lock-color #default i3 screen locker
         i3blocks #if you are planning on using i3blocks over i3status
+        xautolock
+        polybarFull
+        picom
+        feh
+        light
+        kdePackages.dolphin
      ];
     };
   };
@@ -81,8 +96,18 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = true;
-  security.rtkit.enable = true;
+  hardware = {
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+    };
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+  };
+
+  # security.rtkit.enable = true;
   # services.pipewire = {
   #   enable = true;
   #   alsa.enable = true;
@@ -127,18 +152,20 @@
   };
 
   programs = {
-  nix-ld = {
-    enable = true;
-    package = pkgs.nix-ld-rs;
-    libraries = [
-      pkgs.fnm
-      pkgs.clash-verge-rev
-      # pkgs.libGL, any other libraries your code may need...
-      # See nix-alien and nix-autobahn for help finding which 
-      # libraries you need to install... not sure the best way
-      # to use these to find required libraries for Python packages
-    ];
-  };
+    nix-ld = {
+      enable = true;
+      package = pkgs.nix-ld-rs;
+      libraries = with pkgs; [
+        # fnm
+        i3
+        polybar
+        # pkgs.libGL, any other libraries your code may need...
+        # See nix-alien and nix-autobahn for help finding which 
+        # libraries you need to install... not sure the best way
+        # to use these to find required libraries for Python packages
+      ];
+    };
+    nm-applet.enable = true;
 };
 
   # Install firefox.
@@ -152,6 +179,26 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    networkmanagerapplet
+    networkmanager_dmenu
+    psmisc
+    catppuccin-sddm
+    kdePackages.oxygen-icons
+    wineWowPackages.stagingFull
+    i3ipc-glib
+    xorg.xwininfo
+    xdotool
+  ];
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    wqy_microhei
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -166,6 +213,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.blueman.enable = true;
 
   # services.mihomo = {
   #   enable = true; 

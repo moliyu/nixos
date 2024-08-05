@@ -14,10 +14,7 @@
     gcc
     rofi
     alacritty
-    polybar
     fira-code-nerdfont
-    picom
-    feh
     python3
     lazygit
     microsoft-edge
