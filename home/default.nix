@@ -15,7 +15,6 @@
     rofi
     alacritty
     fira-code-nerdfont
-    python3
     lazygit
     microsoft-edge
   ];
@@ -61,4 +60,5 @@
   xdg.configFile."pictures".source = ./pictures;
   xdg.configFile."dunst".source = ./dunst;
   xdg.dataFile."fcitx5/themes".source = ./fcitx-theme;
+  xdg.configFile."hypr".source = ./hypr;
 }

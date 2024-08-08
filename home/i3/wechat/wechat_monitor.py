@@ -3,12 +3,19 @@
 import time
 import i3ipc
 import subprocess
+import os
+import re
+
+_path = os.path.abspath(__file__)
+_dir = os.path.dirname(_path)
+
 
 def on_new_window(i3, event):
     window = event.container
-    if window.window_class == 'Wine':
+    print(window.window_class, _path, _dir)
+    if re.search(r'wxwork', window.window_class):
         time.sleep(0.2)
-        subprocess.run(['bash', '/usr/local/bin/remove_wechat_shadow'])
+        subprocess.run(['sh', os.path.join(_dir, 'remove_wechat_shadow')])
 
 # Create the Connection object to the i3 IPC interface
 i3 = i3ipc.Connection()
