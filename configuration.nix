@@ -60,7 +60,7 @@
   services.displayManager.sddm = {
     enable = true;
     theme = "catppuccin-mocha";
-    # package = pkgs.kdePackages.sddm;
+    package = pkgs.kdePackages.sddm;
     settings= {
       General = {
         InputMethod = "";
@@ -92,9 +92,10 @@
     };
   };
 
-  programs.hyprland = {
-    enable = true;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true;
+  # };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -194,11 +195,12 @@
     xorg.xwininfo
     xdotool
     wmctrl
-    (python312.withPackages (ps: with ps; [
-      pip
-      i3ipc
-    ]))
+    # (python312.withPackages (ps: with ps; [
+    #   pip
+    #   i3ipc
+    # ]))
     kitty
+    wofi
   ];
 
   fonts.packages = with pkgs; [
@@ -217,6 +219,8 @@
   services.blueman.enable = true;
 
   services.v2raya.enable = true;
+
+  services.hypridle.enable = true;
 
   system.stateVersion = "24.05";
 
