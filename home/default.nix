@@ -63,4 +63,5 @@
   xdg.configFile."dunst".source = ./dunst;
   xdg.dataFile."fcitx5/themes".source = ./fcitx-theme;
   xdg.configFile."hypr".source = ./hypr;
+  xdg.configFile."waybar".source = ./waybar;
 }

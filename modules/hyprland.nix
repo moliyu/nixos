@@ -4,4 +4,6 @@
     enable = true;
     xwayland.enable = true;
   };
+
+  programs.waybar.enable = true;
 }
