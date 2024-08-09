@@ -3,7 +3,6 @@
 {
   imports = [
     ./nvim
-    ./hyprland.nix
   ];
   home.username = "doudou";
   home.homeDirectory = "/home/doudou";
@@ -19,8 +18,6 @@
     lazygit
     microsoft-edge
     (python312.withPackages (p: with p; [
-      material-color-utilities
-      pywayland
       pip
       i3ipc
     ]))
