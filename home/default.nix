@@ -3,7 +3,7 @@
 {
   imports = [
     ./nvim
-    ./ags.nix
+    ./hyprland.nix
   ];
   home.username = "doudou";
   home.homeDirectory = "/home/doudou";
@@ -56,11 +56,6 @@
         "git"
       ];
     };
-  };
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland.enable = true;
   };
 
   xdg.configFile."rofi".source = ./rofi;
