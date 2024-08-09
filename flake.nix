@@ -12,9 +12,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    ags.url = "github:Aylur/ags"; 
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
       # 这里的 vm-nixos 替换成你的主机名称
       nixos = nixpkgs.lib.nixosSystem {
@@ -29,7 +30,9 @@
 
             home-manager.users.doudou = import ./home;
 
-            home-manager.extraSpecialArgs = inputs;
+            home-manager.extraSpecialArgs = {
+              inherit inputs self;
+            };
           }
         ];
       };

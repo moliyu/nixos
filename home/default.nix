@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   imports = [
     ./nvim
+    ./ags.nix
   ];
   home.username = "doudou";
   home.homeDirectory = "/home/doudou";
@@ -17,9 +18,9 @@
     fira-code-nerdfont
     lazygit
     microsoft-edge
-    (python312.withPackages (p: [
-      p.material-color-utilities
-      p.pywayland
+    (python312.withPackages (p: with p; [
+      material-color-utilities
+      pywayland
       pip
       i3ipc
     ]))
@@ -28,25 +29,6 @@
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 
-  programs.ags = {
-    enable = true;
-    configDir = null; # if ags dir is managed by home-manager, it'll end up being read-only. not too cool.
-    # configDir = ./.config/ags;
-
-    extraPackages = with pkgs; [
-      gtksourceview
-      gtksourceview4
-      ollama
-      python312Packages.material-color-utilities
-      python312Packages.pywayland
-      pywal
-      sassc
-      webkitgtk
-      webp-pixbuf-loader
-      ydotool
-    ];
-  };
-  
   programs.git = {
     enable = true;
     userName  = "zeyu";
@@ -76,7 +58,7 @@
     };
   };
 
-  programs.hyprland = {
+  wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
