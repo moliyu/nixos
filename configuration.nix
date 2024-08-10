@@ -196,18 +196,14 @@
     xorg.xwininfo
     xdotool
     wmctrl
-    (python312.withPackages (ps: with ps; [
-      pip
-      i3ipc
-      material-color-utilities
-      pywayland
-    ]))
+    # (python312.withPackages (ps: with ps; [
+    #   pip
+    #   i3ipc
+    # ]))
     kitty
     wofi
     hyprlandPlugins.hyprexpo
-    ollama
-    pywal
-    sassc
+    wlogout
   ];
 
   fonts.packages = with pkgs; [
@@ -218,6 +214,7 @@
     fira-code
     fira-code-symbols
     wqy_microhei
+    font-awesome
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 

@@ -3,7 +3,6 @@
 {
   imports = [
     ./nvim
-    inputs.ags.homeManagerModules.default
   ];
   home.username = "doudou";
   home.homeDirectory = "/home/doudou";
@@ -37,7 +36,6 @@
     enable = true;
   };
 
-  programs.ags.enable = true;
   # programs.neovim.plugins = [
   #   pkgs.vimPlugins.nvim-treesitter
   # ];
@@ -68,4 +66,5 @@
   xdg.configFile."hypr".source = ./hypr;
   xdg.configFile."waybar".source = ./waybar;
   xdg.configFile."ags".source = ./ags;
+  xdg.configFile."wofi".source = ./wofi;
 }

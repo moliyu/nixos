@@ -1,102 +1,92 @@
-@import "mocha.css";
-
 * {
-  font-family: FantasqueSansMono Nerd Font;
-  font-size: 17px;
+  border: none;
+  border-radius: 0;
   min-height: 0;
+  margin: 0;
+  padding: 0;
 }
-
 #waybar {
-  background: transparent;
-  color: @text;
-  margin: 5px 5px;
-}
-
-#workspaces {
-  border-radius: 1rem;
-  margin: 5px;
-  background-color: @surface0;
-  margin-left: 1rem;
+  background: #1e222a;
+  color: #eeeeef;
+  font-size: 14px;
+  font-family: "Hack Nerd Font";
 }
 
 #workspaces button {
-  color: @lavender;
-  border-radius: 1rem;
-  padding: 0.4rem;
+  padding: 0 5px;
+  color: #eeeeef;
 }
-
+/* Fix: active workspace doesn't show up */
+/* #workspaces button.focused { */
 #workspaces button.active {
-  color: @sky;
-  border-radius: 1rem;
+  color: #fa5aa4;
 }
 
-#workspaces button:hover {
-  color: @sapphire;
-  border-radius: 1rem;
-}
-
-#custom-music,
-#tray,
-#backlight,
+#custom-powermenu,
+#cpu,
+#temperature,
+#memory,
+#workspaces,
 #clock,
-#battery,
+#window,
 #pulseaudio,
-#custom-lock,
-#custom-power {
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+#custom-updates,
+#network {
+  padding: 4px 8px;
+  background-color: #303643;
+  border-radius: 30px;
+  margin: 6px 4px;
 }
 
-#clock {
-  color: @blue;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
-}
-
-#battery {
-  color: @green;
-}
-
-#battery.charging {
-  color: @green;
-}
-
-#battery.warning:not(.charging) {
-  color: @red;
-}
-
-#backlight {
-  color: @yellow;
-}
-
-#backlight, #battery {
-    border-radius: 0;
-}
-
-#pulseaudio {
-  color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
-}
-
-#custom-music {
-  color: @mauve;
-  border-radius: 1rem;
-}
-
-#custom-lock {
-    border-radius: 1rem 0px 0px 1rem;
-    color: @lavender;
-}
-
-#custom-power {
-    margin-right: 1rem;
-    border-radius: 0px 1rem 1rem 0px;
-    color: @red;
+#window {
+  color: #929db1;
 }
 
 #tray {
-  margin-right: 1rem;
-  border-radius: 1rem;
+  margin-left: 4px;
+}
+
+#custom-updates {
+  color: #1788e4;
+}
+
+#custom-powermenu {
+  color: #e06c75;
+  padding-right: 11px;
+  margin-right: 8px;
+}
+
+#scratchpad {
+  color: #cffafe;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+#pulseaudio {
+  color: #0fb9b1;
+  padding-right: 14px;
+}
+
+#cpu {
+  color: #61afef;
+}
+
+#temperature {
+  color: #98c379;
+}
+
+#memory {
+  color: #e5c07b;
+}
+
+#network {
+  color: #c678dd;
+  min-width: 200px;
+}
+
+#clock {
+  color: #fff;
+  margin-left: 8px;
+  /* opacity: 0.7; */
+  /* font-size: 18px; */
 }
