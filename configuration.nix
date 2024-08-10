@@ -196,12 +196,18 @@
     xorg.xwininfo
     xdotool
     wmctrl
-    # (python312.withPackages (ps: with ps; [
-    #   pip
-    #   i3ipc
-    # ]))
+    (python312.withPackages (ps: with ps; [
+      pip
+      i3ipc
+      material-color-utilities
+      pywayland
+    ]))
     kitty
     wofi
+    hyprlandPlugins.hyprexpo
+    ollama
+    pywal
+    sassc
   ];
 
   fonts.packages = with pkgs; [

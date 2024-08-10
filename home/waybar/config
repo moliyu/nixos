@@ -3,16 +3,27 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-center": ["custom/music"],
     "modules-right": ["pulseaudio", "backlight", "battery", "clock", "tray", "custom/lock", "custom/power"],
-    "wlr/workspaces": {
-         "disable-scroll": true,
-         "sort-by-name": true,
+    "hyrpland/workspaces": {
+         "sort-by-number": true,
          "format": " {icon} ",
+         "on-click": "activate",
          "format-icons": {
-             "default": "",
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
          },
+         "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+        },
      },
     "tray": {
         "icon-size": 21,

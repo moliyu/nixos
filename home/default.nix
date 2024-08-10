@@ -3,6 +3,7 @@
 {
   imports = [
     ./nvim
+    inputs.ags.homeManagerModules.default
   ];
   home.username = "doudou";
   home.homeDirectory = "/home/doudou";
@@ -35,6 +36,8 @@
   programs.neovim = {
     enable = true;
   };
+
+  programs.ags.enable = true;
   # programs.neovim.plugins = [
   #   pkgs.vimPlugins.nvim-treesitter
   # ];
@@ -64,4 +67,5 @@
   xdg.dataFile."fcitx5/themes".source = ./fcitx-theme;
   xdg.configFile."hypr".source = ./hypr;
   xdg.configFile."waybar".source = ./waybar;
+  xdg.configFile."ags".source = ./ags;
 }
