@@ -33,8 +33,11 @@
 
   programs.git = {
     enable = true;
-    userName  = "zeyu";
-    userEmail = "123@qq.com";
+    userName  = "moliyu";
+    userEmail = "951028382@qq.com";
+    extraConfig = {
+      credential.helper = "store";
+    };
   };
   
   programs.neovim = {
