@@ -3,6 +3,7 @@
 {
   imports = [
     ./nvim
+    ./hyprland.nix
   ];
   home.username = "doudou";
   home.homeDirectory = "/home/doudou";
@@ -12,7 +13,7 @@
     fnm
     # clash-verge-rev
     gcc
-    rofi
+    # rofi
     alacritty
     fira-code-nerdfont
     lazygit
@@ -21,6 +22,10 @@
       pip
       i3ipc
     ]))
+    catppuccin-kvantum
+    qt6Packages.qtstyleplugin-kvantum
+    dconf-editor
+    gsettings-qt
   ];
 
   home.stateVersion = "24.05";
@@ -55,6 +60,37 @@
       ];
     };
   };
+
+  qt = {
+    enable = true;
+    platformTheme = "qtct";
+  };
+  
+  gtk = {
+    enable = true;
+    font = {
+      name = "Firacode Nerd Font Mono";
+      size = 11;
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "lavender";
+      };
+    };
+    theme = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+    };
+    cursorTheme = {
+      name = "Nordzy-cursors";
+      package = pkgs.nordzy-cursor-theme;
+      size = 22;
+    };
+  };
+
+  
 
   xdg.configFile."rofi".source = ./rofi;
   xdg.configFile."i3".source = ./i3;

@@ -5,7 +5,7 @@
     "modules-left": [
       "clock",
       "hyprland/workspaces",
-      "custom/updates",
+      //"custom/updates",
       "tray",
       ],
     "modules-center": [
@@ -15,7 +15,8 @@
       "network",
       "temperature",
       "memory",
-      "cpu",
+//      "cpu",
+      "battery",
       "pulseaudio",
       "custom/powermenu",
     ],
@@ -111,6 +112,16 @@
       "interval": 60,
       "tooltip": true,
       "tooltip-format": "{:%d %B %H:%M}"
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "max-length": 25
     }
 }
 

@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./modules
+      # ./modules
     ];
 
   # Bootloader.
@@ -172,6 +172,7 @@
       ];
     };
     nm-applet.enable = true;
+    dconf.enable = true;
 };
 
   # Install firefox.
@@ -204,6 +205,10 @@
     wofi
     hyprlandPlugins.hyprexpo
     wlogout
+    papirus-icon-theme
+    wl-clipboard
+    cliphist
+    rofi-wayland
   ];
 
   fonts.packages = with pkgs; [
@@ -215,7 +220,7 @@
     fira-code-symbols
     wqy_microhei
     font-awesome
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ]; })
   ];
 
   services.openssh.enable = true;
