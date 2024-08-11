@@ -210,6 +210,8 @@
     wl-clipboard
     cliphist
     rofi-wayland
+    playerctl
+    pamixer
   ];
 
   fonts.packages = with pkgs; [

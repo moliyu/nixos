@@ -14,7 +14,7 @@
     "memory",
     "temperature",
     "custom/filler",
-    "custom/playerctl",
+    "tray",
     "custom/filler",
     "disk",
     "custom/filler",
@@ -45,12 +45,7 @@
         "Paused": "<span foreground='#cdd6f4'> 󰏥 </span>",
       },
     },
-    "custom/uptime": {
-    "format": " {}",
-    "interval": 30,
-    "exec": "$HOME/.local/bin/upt2",
-    "on-click" : "",
-  },
+    
      "disk": {
     "interval": 1,
     "format": "<span color=\"#68b0d6\"> </span> {}%",
@@ -141,7 +136,6 @@
     "on-click-right": "pavucontrol"
   },
   "battery": {
-    "bat": "BAT0",
     "interval": 10,
     "states": {
       "warning": 30,
