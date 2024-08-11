@@ -3,7 +3,7 @@
 {
   imports = [
     ./nvim
-    ./hyprland.nix
+    # ./hyprland.nix
   ];
   home.username = "doudou";
   home.homeDirectory = "/home/doudou";

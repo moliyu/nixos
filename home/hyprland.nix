@@ -1,11 +1,13 @@
-{config, inputs, pkgs ...}:
+{config, inputs, pkgs, ...}:
 {
   imports = [
-     hyprland.homeManagerModules.default
+     inputs.hyprland.homeManagerModules.default
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
+    systemd.variables = ["--all"];
   };
+
+  programs.waybar.enable = true;
 }
