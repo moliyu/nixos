@@ -11,7 +11,11 @@
     nautilus
     kdePackages.dolphin
     hyprpaper
+    socat
+    xdotool
+    dunst
   ]; 
+
 
   xdg = {
    portal = {
