@@ -66,7 +66,7 @@
 
   qt = {
     enable = true;
-    platformTheme = "qtct";
+    platformTheme.name = "qtct";
   };
   
   gtk = {
@@ -104,6 +104,6 @@
   xdg.dataFile."fcitx5/themes".source = ./fcitx-theme;
   xdg.configFile."hypr".source = ./hypr;
   xdg.configFile."waybar".source = ./waybar;
-  xdg.configFile."ags".source = ./ags;
   xdg.configFile."wofi".source = ./wofi;
+  xdg.configFile."wallerpaper".source = ./pictures;
 }
