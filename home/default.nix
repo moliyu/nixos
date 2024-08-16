@@ -96,8 +96,8 @@
   
 
   xdg.configFile."rofi".source = ./rofi;
-  xdg.configFile."i3".source = ./i3;
-  xdg.configFile."polybar".source = ./polybar;
+  # xdg.configFile."i3".source = ./i3;
+  # xdg.configFile."polybar".source = ./polybar;
   xdg.configFile."alacritty".source = ./alacritty;
   xdg.configFile."pictures".source = ./pictures;
   xdg.configFile."dunst".source = ./dunst;

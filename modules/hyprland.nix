@@ -14,6 +14,9 @@
     socat
     xdotool
     dunst
+    toastify
+    hyprshot
+    lutris
   ]; 
 
 
