@@ -1,8 +1,12 @@
 { config, pkgs, ... }:
 {
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
+  programs = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+    nm-applet.enable = true;
+    dconf.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

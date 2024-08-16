@@ -12,11 +12,22 @@
     ];
 
   # Bootloader.
-  # boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.systemd-boot.configurationLimit = 10;
+  # boot.loader.systemd-boot.enable = false;
+  # boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.grub.enable = true;
+  # boot.loader.grub.device = "nodev";
+  # boot.loader.systemd-boot.configurationLimit = 10;
+  boot.loader = {
+      efi = {
+          canTouchEfiVariables = true;
+      };
+      grub = {
+          enable = true;
+          efiSupport = true;
+          # efiInstallAsRemovable = true;
+          device = "nodev";
+      };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -138,10 +149,6 @@
     isNormalUser = true;
     description = "doudou";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
   };
 
   users.defaultUserShell = pkgs.zsh;
@@ -165,21 +172,13 @@
       enable = true;
       package = pkgs.nix-ld-rs;
       libraries = with pkgs; [
-        # fnm
-        i3
-        polybar
         # pkgs.libGL, any other libraries your code may need...
         # See nix-alien and nix-autobahn for help finding which 
         # libraries you need to install... not sure the best way
         # to use these to find required libraries for Python packages
       ];
     };
-    nm-applet.enable = true;
-    dconf.enable = true;
 };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
